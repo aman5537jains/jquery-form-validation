@@ -1,19 +1,16 @@
-// Wait for the DOM to be ready
 $(function() {
   // Initialize form validation on the registration form.
-  // It has the name attribute "registration"
+  // It has the name attribute "registerform"
   $("form[name='registerform']").validate({
     // Specify validation rules
     rules: {
-      // The key name on the left side is the name attribute
-      // of an input field. Validation rules are defined
-      // on the right side
+      // left side input name , right side validation name
       firstName: 'required',
       lastName: 'required',
       email: {
         required: true,
-        // Specify that email should be validated
-        // by the built-in "email" rule
+
+        // built in email validation
         email: true
       },
       password: {
@@ -26,7 +23,7 @@ $(function() {
         equalTo: '#password'
       }
     },
-    // Specify validation error messages
+    // Custom validation error messages
     messages: {
       firstName: 'Please enter your firstname',
       lastnNme: 'Please enter your lastname',
@@ -39,8 +36,7 @@ $(function() {
         equalTo: 'Password and confirm password does not match'
       }
     },
-    // Make sure the form is submitted to the destination defined
-    // in the "action" attribute of the form when valid
+    // hanlde the submission
     submitHandler: function(form) {
       form.submit();
     }
